@@ -1,0 +1,523 @@
+/* OrderBook.css - Pixel-perfect Figma styling */
+
+/* Import Inter font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+/* Order book container - exact Figma specs */
+.order-book-container {
+  /* Exact Figma dimensions */
+  width: 280px;
+  height: 658px;
+  background: #1A1A1A;
+  border-radius: 4px;
+
+  /* Flexbox layout */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px;
+
+  position: relative;
+
+  /* Font setup */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  user-select: none;
+  overflow: hidden;
+}
+
+/* Header styling - Frame 8 */
+.order-book-header {
+  box-sizing: border-box;
+
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 0px; /* Remove padding to allow precise positioning */
+
+  width: 280px;
+  height: 40px;
+
+  border-bottom: 1px solid #333333;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+  position: relative;
+}
+
+/* Tabs container */
+.tabs-container {
+  display: flex;
+  flex-direction: row;
+  width: calc(100% - 32px); /* Leave space for settings icon */
+  height: 40px;
+  padding-left: 12px;
+}
+
+/* Tab styling */
+.tab {
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 0px;
+  position: relative;
+
+  /* Equal width - each tab takes 50% */
+  flex: 1;
+  width: 50%;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #AAAAAA;
+  cursor: pointer;
+}
+
+.tab.active {
+  color: #FFFFFF;
+}
+
+/* Active tab underline - longer and thicker */
+.tab.active::after {
+  content: '';
+  position: absolute;
+  width: 28px; /* Made longer - increased from 16px to 28px */
+  height: 3px; /* Made thicker - increased from 2px to 3px */
+  left: 50%;
+  bottom: 0px; /* Position above the border */
+  transform: translateX(-50%);
+  background: #FFFFFF;
+}
+
+/* Settings icon - positioned to align with AVAX dropdown end */
+.settings-icon {
+  /* Absolute positioning for precise alignment */
+  position: absolute;
+  top: 50%;
+  right: 8px; /* Moved back to align with AVAX dropdown icon end */
+  transform: translateY(-50%);
+
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
+
+  width: 20px;
+  height: 20px;
+
+  color: #AAAAAA;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Symbol header - Frame 10 */
+.symbol-header {
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px; /* Increased padding to prevent cutoff */
+
+  width: 280px;
+  height: 32px;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+/* Symbol selector buttons */
+.size-selector {
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0px;
+  gap: 4px;
+
+  /* Increased width to prevent cutoff */
+  min-width: 60px;
+  height: 16px;
+
+  border-radius: 4px;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #FFFFFF;
+
+  /* Inside auto layout */
+  flex: none;
+  flex-grow: 0;
+}
+
+.symbol {
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end; /* Right align AVAX */
+  padding: 0px;
+  gap: 4px;
+
+  /* Increased width to prevent cutoff */
+  min-width: 60px;
+  height: 16px;
+
+  border-radius: 4px;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #FFFFFF;
+
+  /* Inside auto layout */
+  flex: none;
+  flex-grow: 0;
+}
+
+/* Column headers - Frame 11 */
+.column-headers {
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 12px; /* Increased padding to prevent cutoff */
+
+  width: 280px;
+  height: 16px;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+/* Header cell */
+.header-cell {
+  /* Adjusted width to fit all headers properly */
+  flex: 1;
+  min-width: 80px;
+  height: 16px;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #AAAAAA;
+
+  /* Prevent text cutoff */
+  white-space: nowrap;
+  overflow: visible;
+}
+
+.header-cell:nth-child(2),
+.header-cell:nth-child(3) {
+  text-align: right;
+}
+
+/* Order book content container */
+.order-book-content {
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 0px;
+
+  width: 280px;
+  height: 568px;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+
+  overflow: hidden; /* Remove scrollbars */
+}
+
+/* Asks section */
+.asks-section {
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+
+  width: 280px;
+  height: 264px;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+  overflow: hidden;
+}
+
+/* Bids section */
+.bids-section {
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+
+  width: 280px;
+  height: 264px;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 2;
+  align-self: stretch;
+  flex-grow: 0;
+  overflow: hidden;
+}
+
+/* Order row styling */
+.order-row {
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 10px;
+
+  width: 280px;
+  height: 24px;
+
+  /* Inside auto layout */
+  flex: none;
+  align-self: stretch;
+  flex-grow: 0;
+
+  /* Performance optimizations */
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Ask rows background */
+.order-row.ask {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 70%, rgba(237, 112, 136, 0.1) 70%);
+}
+
+/* Bid rows background */
+.order-row.bid {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 70%, rgba(31, 166, 125, 0.1) 70%);
+}
+
+/* Price cell styling */
+.price-cell {
+  width: 86.67px;
+  height: 16px;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  font-feature-settings: 'tnum' on, 'lnum' on;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 1;
+}
+
+/* Size and total cells */
+.size-cell,
+.total-cell {
+  width: 86.67px;
+  height: 16px;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: right;
+  font-feature-settings: 'tnum' on, 'lnum' on;
+
+  color: #FFFFFF;
+
+  /* Inside auto layout */
+  flex: none;
+  flex-grow: 1;
+}
+
+/* Ask price color */
+.order-row.ask .price-cell {
+  color: #ED7088;
+}
+
+/* Bid price color */
+.order-row.bid .price-cell {
+  color: #1FA67D;
+}
+
+/* Spread indicator */
+.spread-indicator {
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start; /* Left align */
+  padding: 0px 10px; /* Match order row padding for alignment */
+
+  width: 280px;
+  height: 36px;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+
+  /* Remove background and borders */
+  background: transparent;
+}
+
+.spread-price {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  font-feature-settings: 'tnum' on, 'lnum' on;
+  color: #1FA67D;
+  text-align: left; /* Left align */
+}
+
+/* Connection status - positioned at bottom right of screen */
+.connection-status {
+  position: fixed; /* Fixed to screen instead of absolute to container */
+  bottom: 20px;
+  right: 20px;
+  font-size: 10px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background-color: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  z-index: 1000; /* Ensure it stays on top */
+}
+
+.connection-status.connected {
+  color: #1FA67D;
+}
+
+.connection-status.disconnected {
+  color: #ED7088;
+}
+
+.status-indicator {
+  font-size: 8px;
+}
+
+.status-text {
+  font-weight: 400;
+}
+
+.reconnect-btn {
+  background-color: #ED7088;
+  color: #ffffff;
+  border: none;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 9px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.reconnect-btn:hover {
+  background-color: #d63061;
+}
+
+/* Scrollbar styling */
+.order-book-content::-webkit-scrollbar {
+  width: 2px;
+}
+
+.order-book-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.order-book-content::-webkit-scrollbar-thumb {
+  background: rgba(170, 170, 170, 0.3);
+  border-radius: 1px;
+}
+
+.order-book-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(170, 170, 170, 0.5);
+}
+
+/* Loading overlay */
+.loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(26, 26, 26, 0.8);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  border-radius: 4px;
+}
+
+/* Loading spinner - big round circle */
+.loading-spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  border-top: 4px solid #FFFFFF;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Responsive design adjustments */
+@media (max-width: 320px) {
+  .order-book-container {
+    width: 100%;
+    max-width: 280px;
+  }
+}
