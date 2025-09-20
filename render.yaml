@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: hyperliquid-orderbook
+    env: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npx serve -s build -l 10000
+    envVars:
+      - key: NODE_VERSION
+        value: 18
